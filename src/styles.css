@@ -26,7 +26,7 @@ html, body {
     margin: 0 16px;
     cursor: pointer;
     padding: 4px;
-    transition: background-color color var(--animation-speed);
+    transition: background-color var(--animation-speed), color var(--animation-speed);
     background-color: white;
 }
 
@@ -44,7 +44,7 @@ html, body {
 
 .shadow{
     box-shadow: 0 0 8px 0 rgba(0,0,0,0.4);
-    transition: var(--animation-speed);
+    transition: box-shadow var(--animation-speed);
 }
 
 .shadow:hover{
@@ -86,6 +86,7 @@ html, body {
     margin: 0 16px;
     cursor: pointer;
     padding: 4px;
+    transition: background-color var(--animation-speed), color var(--animation-speed);
 }
 
 .danger {
@@ -106,4 +107,12 @@ html, body {
 
 .selected-note{
     border: 2px solid var(--logo-blue) !important;
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+.smooth-movement{
+    transition: top 0.1s, left 0.1s;
 }

@@ -1,6 +1,6 @@
 <div class="main-container">
     <div class="header shadow">
-        <img class="logo" src="../assets/cropped-Coloured-Motif.png">
+        <img (click)="openInNew('https://flytbase.com/')" class="logo pointer" src="../assets/cropped-Coloured-Motif.png">
         <h1 class="app-title">
             FlytBase Sticky Notes - Unleashing Your Productivity!
         </h1>
@@ -13,7 +13,7 @@
             </span>
         </div>
     </div>
-    <div class="notes-container">
+    <div id="notes-container-id" class="notes-container">
         <app-note
         *ngFor="let note of notes"
         (delete)="deleteNote($event)"

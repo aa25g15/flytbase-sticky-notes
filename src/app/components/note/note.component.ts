@@ -39,6 +39,9 @@ export class NoteComponent implements OnInit {
     function dragMouseDown(e: any) {
       e = e || window.event;
       e.preventDefault();
+
+      targetElement.classList.remove("smooth-movement");
+
       // get the mouse cursor position at startup:
       pos3 = e.clientX;
       pos4 = e.clientY;

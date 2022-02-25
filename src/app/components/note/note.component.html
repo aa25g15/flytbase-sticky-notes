@@ -1,11 +1,12 @@
-<div class="note shadow">
+<div [ngClass]="{'selected-note' : currentSelectedNoteId == noteId}" class="note-main-container shadow">
     <div class="action-buttons">
-        <span class="material-icons small-round-button danger">
+        <span (click)="triggerDelete()" class="material-icons small-round-button danger">
             delete
         </span>
         <span [id]="'note-drag-button-'+noteId" class="material-icons small-round-button">
             drag_indicator
         </span>
+        <span id="note-id-indicator">Note #{{noteId+1}}</span>
     </div>
     <form [formGroup]="noteForm" autocomplete="off">
         <div class="form-container flex-col">

@@ -103,3 +103,7 @@ html, body {
 .large-round-button-active{
     color: var(--logo-green);
 }
+
+.selected-note{
+    border: 2px solid var(--logo-blue) !important;
+}

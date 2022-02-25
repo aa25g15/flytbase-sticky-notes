@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -8,6 +8,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class NoteComponent implements OnInit {
   @Input() noteId: number = 0;
+  @Input() currentSelectedNoteId: number = 0;
+  @Output() delete: EventEmitter<number> = new EventEmitter<number>();
 
   noteForm: FormGroup = new FormGroup({
     textBody: new FormControl('', Validators.required)
@@ -63,6 +65,10 @@ export class NoteComponent implements OnInit {
       document.onmouseup = null;
       document.onmousemove = null;
     }
+  }
+
+  triggerDelete(){
+    this.delete.emit(this.noteId);    
   }
 
 }

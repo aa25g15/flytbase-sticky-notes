@@ -2,10 +2,10 @@
     <div class="header shadow">
         <img class="logo" src="../assets/cropped-Coloured-Motif.png">
         <h1 class="app-title">
-            Sticky Notes - Remember Everything Awesome About Drones!
+            FlytBase Sticky Notes - Unleashing Your Productivity!
         </h1>
         <div class="control-container">
-            <span class="material-icons large-round-button shadow">
+            <span (click)="toggleKeyboardControl()" [ngClass]="{'large-round-button-active': isKeyboardControl}" class="material-icons large-round-button shadow">
                 keyboard
             </span>
             <span (click)="addNote()" class="material-icons large-round-button shadow">
@@ -14,6 +14,14 @@
         </div>
     </div>
     <div class="notes-container">
-      <app-note *ngFor="let note of notes" [id]="'note-id-'+note.id" [noteId]="note.id" [style]="'z-index: '+note.id+1+';'"></app-note>
+        <app-note
+        *ngFor="let note of notes"
+        (delete)="deleteNote($event)"
+        [id]="'note-id-'+note.id"
+        [noteId]="note.id"
+        [style]="'z-index: '+note.id+1+';'"
+        [currentSelectedNoteId]="currentSelectedNoteId"
+        (mousedown)="selectNote(note.id)">
+        </app-note>
     </div>
 </div>

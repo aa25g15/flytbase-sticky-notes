@@ -1,4 +1,4 @@
-.note{
+.note-main-container{
     width: var(--note-size);
     border: 1px solid black;
     border-radius: 4px;
@@ -44,4 +44,9 @@ form{
 .note-text-body, .note-text-body textarea{
     height: var(--note-size);
     resize: none;
+}
+
+#note-id-indicator{
+    font-size: 12px;
+    margin-right: auto;
 }

@@ -42,4 +42,5 @@
 
 .notes-container app-note{
     position: absolute;
+    transition: top, left, right, bottom var(--animation-speed);
 }

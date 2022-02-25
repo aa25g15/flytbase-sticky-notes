@@ -1,0 +1,17 @@
+<div class="note shadow">
+    <div class="action-buttons">
+        <span class="material-icons small-round-button danger">
+            delete
+        </span>
+        <span [id]="'note-drag-button-'+noteId" class="material-icons small-round-button">
+            drag_indicator
+        </span>
+    </div>
+    <form [formGroup]="noteForm" autocomplete="off">
+        <div class="form-container flex-col">
+            <div class="note-text-body">
+                <textarea class="input" formControlName="textBody" placeholder="Write something awesome about drones!"></textarea>
+            </div>
+        </div>
+    </form>
+</div>

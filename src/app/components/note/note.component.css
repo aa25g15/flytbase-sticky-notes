@@ -1,0 +1,47 @@
+.note{
+    width: var(--note-size);
+    border: 1px solid black;
+    border-radius: 4px;
+    background: var(--logo-green);
+    margin: 32px;
+    padding: 16px;
+    position: absolute;
+    animation-name: appear;
+    animation-duration: var(--animation-speed);
+}
+
+@keyframes appear {
+    from {transform: scale(0,0);}
+    to {transform: scale(1,1);}
+}
+
+.action-buttons{
+    position: relative;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 0 0 8px 0;
+}
+
+.action-buttons span{
+    margin: 0;
+    padding: 0;
+}
+
+.action-buttons span:nth-child(2){
+    cursor: all-scroll;
+}
+
+.form-container{
+    height: 100%;
+}
+
+form{
+    height: 100%;
+}
+
+.note-text-body, .note-text-body textarea{
+    height: var(--note-size);
+    resize: none;
+}

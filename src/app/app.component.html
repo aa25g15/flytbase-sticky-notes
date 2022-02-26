@@ -1,10 +1,13 @@
-<div class="main-container">
+<div id="main-container-id" class="main-container">
     <div class="header shadow">
         <img (click)="openInNew('https://flytbase.com/')" class="logo pointer" src="../assets/cropped-Coloured-Motif.png">
         <h1 class="app-title">
             FlytBase Sticky Notes - Unleashing Your Productivity!
         </h1>
         <div class="control-container">
+            <span (click)="changeWallpaper()" class="material-icons large-round-button shadow">
+                refresh
+            </span>
             <span (click)="toggleKeyboardControl()" [ngClass]="{'large-round-button-active': isKeyboardControl}" class="material-icons large-round-button shadow">
                 keyboard
             </span>
@@ -21,7 +24,9 @@
         [noteId]="note.id"
         [style]="'z-index: '+note.id+1+';'"
         [currentSelectedNoteId]="currentSelectedNoteId"
-        (mousedown)="selectNote(note.id)">
+        (mousedown)="selectNote(note.id)"
+        (isTyping)="isTypingInNote = $event"
+        [@dissapear]>
         </app-note>
     </div>
 </div>

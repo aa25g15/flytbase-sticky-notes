@@ -1,13 +1,26 @@
 .main-container{
-    height: 100%;
-    width: 100%;
+    height: var(--note-container-height);
+    width: var(--note-container-width);
     background-color: antiquewhite;
     display: flex;
     flex-direction: column;
     justify-content: stretch;
-    background-image: url(../assets/pexels-pixabay-235985.jpg);
+    background-color: var(--logo-blue);
     background-repeat: no-repeat;
     background-size: cover;
+    position: relative;
+}
+
+.main-container::before{
+    content: ' ';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0.3;
+    background-color: black;
 }
 
 .header{
@@ -18,6 +31,7 @@
     border-bottom: 1px solid black;
     padding: 0 32px;
     box-sizing: border-box;
+    z-index: 1;
 }
 
 .logo{

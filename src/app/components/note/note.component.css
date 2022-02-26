@@ -2,7 +2,7 @@
     width: var(--note-size);
     border: 1px solid black;
     border-radius: 4px;
-    background: var(--logo-green);
+    background: var(--note-background);
     margin: 32px;
     padding: 16px;
     position: absolute;
@@ -44,9 +44,11 @@ form{
 .note-text-body, .note-text-body textarea{
     height: var(--note-size);
     resize: none;
+    color: var(--note-text-color);
 }
 
 #note-id-indicator{
     font-size: 12px;
     margin-right: auto;
+    color: var(--note-text-color);
 }

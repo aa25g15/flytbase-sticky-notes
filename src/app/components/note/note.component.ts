@@ -10,6 +10,7 @@ export class NoteComponent implements OnInit {
   @Input() noteId: number = 0;
   @Input() currentSelectedNoteId: number = 0;
   @Output() delete: EventEmitter<number> = new EventEmitter<number>();
+  @Output() isTyping: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   noteForm: FormGroup = new FormGroup({
     textBody: new FormControl('', Validators.required)
@@ -21,21 +22,47 @@ export class NoteComponent implements OnInit {
     setTimeout(() => {
       const dragButton: HTMLElement | null = document.getElementById(`note-drag-button-${this.noteId}`);
       const noteElement: HTMLElement | null = document.getElementById(`note-id-${this.noteId}`);
+      const noteContainer: HTMLElement | null = document.getElementById("notes-container-id");
 
-      if (dragButton && noteElement) {
+      if (dragButton && noteElement && noteContainer) {
         console.log("Drag started", dragButton);
-        this.dragElement(dragButton, noteElement);
+        this.dragElement(dragButton, noteElement, noteContainer);
       } else {
         console.log("Elements undefined!", dragButton, noteElement);
       }
-    }, 1000);
+    }, 100);
   }
 
-  dragElement(triggerElement: HTMLElement, targetElement: HTMLElement) {
+  dragElement(triggerElement: HTMLElement, targetElement: HTMLElement, containerElement: HTMLElement) {
     let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
 
     triggerElement.onmousedown = dragMouseDown;
-  
+
+    // function checkNoteMovementBounds(value: number, dir: "vertical" | "horizontal") {
+    //   if (containerElement && targetElement.firstElementChild) {
+    //     const containerElementRect = containerElement.getBoundingClientRect();
+    //     const targetElementChildRect = targetElement.firstElementChild.getBoundingClientRect();
+    //     if (dir === "vertical") {
+    //       if(value > 0){
+    //         // Upward movement
+    //         return targetElementChildRect.top - containerElementRect.top - 32 > 0;
+    //       } else {
+    //         // Downward movement
+    //         return containerElementRect.bottom - targetElementChildRect.bottom - 32 > 0;
+    //       }
+    //     } else {
+    //       if(value > 0){
+    //         // Left movement
+    //         return targetElementChildRect.left - containerElementRect.left - 32 > 0;
+    //       } else {
+    //         // Right movement
+    //         return containerElementRect.right - targetElementChildRect.right - 32 > 0;
+    //       }
+    //     }
+    //   }
+    //   return false;
+    // }
+
     function dragMouseDown(e: any) {
       e = e || window.event;
       e.preventDefault();
@@ -49,7 +76,7 @@ export class NoteComponent implements OnInit {
       // call a function whenever the cursor moves:
       document.onmousemove = elementDrag;
     }
-  
+
     function elementDrag(e: any) {
       e = e || window.event;
       e.preventDefault();
@@ -58,11 +85,18 @@ export class NoteComponent implements OnInit {
       pos2 = pos4 - e.clientY;
       pos3 = e.clientX;
       pos4 = e.clientY;
+      // if (checkNoteMovementBounds(pos2, "vertical")) {
+      //   targetElement.style.top = (targetElement.offsetTop - pos2) + "px";
+      // }
+      // if(checkNoteMovementBounds(pos2, "horizontal")){
+      //   targetElement.style.left = (targetElement.offsetLeft - pos1) + "px";
+      // }
+
       // set the element's new position:
       targetElement.style.top = (targetElement.offsetTop - pos2) + "px";
       targetElement.style.left = (targetElement.offsetLeft - pos1) + "px";
     }
-  
+
     function closeDragElement() {
       // stop moving when mouse button is released:
       document.onmouseup = null;
@@ -70,8 +104,11 @@ export class NoteComponent implements OnInit {
     }
   }
 
-  triggerDelete(){
-    this.delete.emit(this.noteId);    
+  triggerDelete() {
+    this.delete.emit(this.noteId);
   }
 
+  isTypingEmitEvent(toEmit: boolean) {
+    this.isTyping.emit(toEmit);
+  }
 }

@@ -3,6 +3,8 @@ html, body {
     width: 100vw;
     padding: 0;
     margin: 0;
+    background-color: black;
+    overflow: hidden;
 }
 
 * {
@@ -12,11 +14,15 @@ html, body {
 :root{
     --logo-orange: #ff7911;
     --logo-blue: #1f83eb;
+    --note-background: #4169E1;
     --logo-green: #39ee7d;
     --logo-red: #d43039;
     --note-size: 200px;
-    --placeholder-color: black;
+    --placeholder-color: white;
+    --note-text-color: white;
     --animation-speed: 0.3s;
+    --note-container-width: 100%;
+    --note-container-height: 100%;
 }
 
 .large-round-button{
@@ -106,7 +112,7 @@ html, body {
 }
 
 .selected-note{
-    border: 2px solid var(--logo-blue) !important;
+    border: 2px solid var(--logo-green) !important;
 }
 
 .pointer{

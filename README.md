@@ -5,9 +5,9 @@
 3. Open cmd in the root folder and run the command - http-server --port 4200
 4. Open http://localhost:4200/ in your choice of browser
 5. Play around with the app!
-6. The code in master in production build with Ahead of Time (AOT) compilation
+6. The code in master is production build with Ahead of Time (AOT) compilation
 7. To check the source code, checkout to dev branch - git checkout dev
-8. To run the source code in angular development mode, install npm libraries - npm i
+8. To run the source code in Angular development mode, install npm libraries - npm i
 9. Serve the project using - ng serve
 10. Open the project in your browser using the url given after compilation
 

@@ -11,4 +11,4 @@
 9. Serve the project using - ng serve
 10. Open the project in your browser using the url given after compilation
 
-#I hope FlytBase likes my project - Thanks! Looking forward to discuss my application further!
+# I hope FlytBase likes my project - Thanks! Looking forward to discuss my application further!

@@ -1,4 +1,4 @@
-# flytbase-sticky-notes
+# Sticky Notes
 ## Instructions to run the project:
 1. Clone master branch from the repository - git clone https://github.com/aa25g15/flytbase-sticky-notes.git 
 2. Install http-server - npm install --global http-server (assuming you have Node.js and NPM installed, otherwise install Node.js - https://nodejs.org/en/download/)
@@ -11,4 +11,4 @@
 9. Serve the project using - ng serve
 10. Open the project in your browser using the url given after compilation
 
-# I hope FlytBase likes my project - Thanks! Looking forward to discussing my application further!
+# I hope you likes my project - Thanks! It was one of the screening questions I was asked for a Frontend position.
